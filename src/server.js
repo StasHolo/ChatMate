@@ -4,7 +4,7 @@ import { Server } from 'socket.io';
 const server = createServer();
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Замените на свой домен React-приложения
+    origin: "https://stasholo.github.io", 
     methods: ["GET", "POST"]
   }
 });
