@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3000'); // Подставьте адрес вашего сервера WebSocket
+const socket = io('https://my-websocket-server-stasholo.glitch.me'); // Подставьте адрес вашего сервера WebSocket
 
 function App() {
   const [message, setMessage] = useState('');
