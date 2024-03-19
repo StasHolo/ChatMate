@@ -1,6 +1,7 @@
 {
   "name": "chatmate",
   "private": true,
+  "homepage": "https://StasHolo.github.io/ChatMate",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
