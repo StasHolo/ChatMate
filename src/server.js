@@ -4,7 +4,7 @@ import { Server } from 'socket.io';
 const server = createServer();
 const io = new Server(server, {
   cors: {
-    origin: "https://stasholo.github.io", 
+    origin: "*", 
     methods: ["GET", "POST"]
   }
 });
