@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
-const socket = io('https://my-websocket-server-stasholo.glitch.me'); // Подставьте адрес вашего сервера WebSocket
+const socket = io('https://my-websocket-server-stasholo.glitch.me');
 
 function App() {
   const [message, setMessage] = useState('');
@@ -13,7 +13,7 @@ function App() {
       setMessages(prevMessages => [...prevMessages, data]);
     });
 
-    // Очистка слушателя при размонтировании компонента
+    
     return () => {
       socket.off('message');
     };
