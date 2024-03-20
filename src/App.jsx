@@ -28,14 +28,14 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Приветствуем в чате!</h1>
+    <div className='message-box'>
+      <h1></h1>
       <div>
         {messages.map((msg, index) => (
           <div key={index}>{msg}</div>
         ))}
       </div>
-      <input
+      <input className='message'
         type="text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}

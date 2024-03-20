@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: grid;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -65,4 +65,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.message {
+  width: 70%;
+  margin-right: 5px;
+  height: 30px;
+}
+.message-box {
+width: 450px;
 }
