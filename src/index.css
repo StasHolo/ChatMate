@@ -75,3 +75,22 @@ button:focus-visible {
 .message-box {
 width: 450px;
 }
+
+.my-message{
+  background-color: #1ed25070;
+  display: flex;
+  width: 50%;
+  margin-left: 50%;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.other-message{
+  background-color: #1e9ad280;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
