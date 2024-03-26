@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import io from 'socket.io-client';
 
@@ -12,6 +12,7 @@ const ChatMatePage = () => {
   const [messages, setMessages] = useState([]);
   const [messageClass, setMessageClass] = useState('');
   const FirstName = localStorage.getItem('Name');
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     // Обработка события получения нового сообщения
@@ -30,11 +31,19 @@ const ChatMatePage = () => {
       setMessages(prevMessages => [...prevMessages, { text: data, class: newMessageClass }]);
     });
 
-    
+
+      
     return () => {
       socket.off('message');
     };
   }, []);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
 
   const handleMessageSend = () => {
     if (message.trim() !== '') {
@@ -54,12 +63,14 @@ const ChatMatePage = () => {
   return (
     <div className='message-box'>
       <h1></h1>
-      <div>
+      <div className='message'>
         {messages.map((msg, index) => (
           <div key={index} className={msg.class}>{msg.text}</div>
         ))}
+        <div ref={messagesEndRef}></div>
       </div>
-      <input className='message'
+      <div className='input-form'>
+      <textarea className='message-input'
         type="text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
@@ -67,7 +78,20 @@ const ChatMatePage = () => {
         placeholder="Введите ваше сообщение..."
       />
       <button onClick={handleMessageSend}>Отправить</button>
+      </div>
+
+
+
+      <div className='changeName'>
+        <Link to='/'><button>Изменить имя</button></Link>
+    
+      </div>
     </div>
+
+    
+
+
+
   );
 }
 

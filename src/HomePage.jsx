@@ -13,18 +13,19 @@ function saveName(){
 }
 
     return (
-        <div>
-            <div>
-            <input className='message'
+        <div className='welcome-block'>
+          <h1>Добро пожаловать!</h1>
+            <div className='welcome-block-input'>
+            <input className='name-input'
         type="text"
         value={firstname}
         onChange={saveName}
         placeholder="Введите ваше имя"
       />
         <Link to='/ChatMatePage'><button>Начать</button></Link>
-        Hello
+    
       </div>
-            <h1> This is Home page. Concratulation! </h1>
+
         </div>
     )
 }

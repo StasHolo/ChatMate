@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #000000e6;
 }
 
 h1 {
@@ -67,23 +68,44 @@ button:focus-visible {
   }
 }
 
-.message {
+.message-input {
+  
   width: 70%;
-  margin-right: 5px;
-  height: 30px;
+  height: 80%;
+  resize: none;
 }
 .message-box {
-width: 450px;
+  position: fixed;
+    top: 35%;
+    width: 500px;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 15%;
+}
+
+.message{
+  height: calc(100% - 50px); /* или любая другая высота, чтобы оставить место для формы */
+  overflow-y: auto;
+}
+
+.input-form{
+  height: 70px; /* или любая другая высота, которая вам подходит */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .my-message{
   background-color: #1ed25070;
   display: flex;
   width: 50%;
-  margin-left: 50%;
+  margin-left: 45%;
   justify-content: center;
   border-radius: 10px;
   margin-bottom: 5px;
+  word-break: break-word;
+  padding: 5px;
+  color: white;
 }
 
 .other-message{
@@ -93,4 +115,27 @@ width: 450px;
   justify-content: center;
   border-radius: 10px;
   margin-bottom: 5px;
+  word-break: break-word;
+  padding: 5px;
+  color: white;
+}
+
+.changeName{
+  margin-top: 20px;
+  
+}
+
+.welcome-block h1{
+  color: white;
+}
+
+.name-input{
+  width: 65%;
+  height: 35px;
+  margin-right: 60px;
+  border-radius: 10px;
+}
+
+.welcome-block-input{
+  width: 560px;
 }
