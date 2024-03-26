@@ -40,7 +40,7 @@ const ChatMatePage = () => {
 
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
   }, [messages]);
 
@@ -67,7 +67,7 @@ const ChatMatePage = () => {
         {messages.map((msg, index) => (
           <div key={index} className={msg.class}>{msg.text}</div>
         ))}
-        <div ref={messagesEndRef}></div>
+        
       </div>
       <div className='input-form'>
       <textarea className='message-input'
