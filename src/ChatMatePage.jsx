@@ -28,7 +28,7 @@ const ChatMatePage = () => {
           newMessageClass = 'other-message';
         }
       }
-      setMessages(prevMessages => [...prevMessages, { text: data, class: newMessageClass }]);
+      setMessages(prevMessages => [{ text: data, class: newMessageClass },...prevMessages ]);
     });
 
 

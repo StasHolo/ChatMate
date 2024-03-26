@@ -84,12 +84,14 @@ button:focus-visible {
 }
 
 .message{
-  height: calc(100% - 50px); /* или любая другая высота, чтобы оставить место для формы */
+  height: calc(100% - 50px); 
   overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .input-form{
-  height: 70px; /* или любая другая высота, которая вам подходит */
+  height: 70px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -163,6 +165,20 @@ button:focus-visible {
       margin-bottom: 15%;
   }
 
-
+  .input-form button{
+    margin-left: 50%;
+    margin-top: 20px;
+  }
+  .input-form{
+    height: 70px; 
+    display: block;
+  }
+  .message-input {
+  
+    width: 90%;
+    height: 80%;
+    resize: none;
+    margin-left: 5%;
+  }
 
 }
