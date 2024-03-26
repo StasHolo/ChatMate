@@ -64,6 +64,7 @@ const ChatMatePage = () => {
     <div className='message-box'>
       <h1></h1>
       <div className='message'>
+      <div ref={messagesEndRef}></div>
         {messages.map((msg, index) => (
           <div key={index} className={msg.class}>{msg.text}</div>
         ))}
