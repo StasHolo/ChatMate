@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import io from 'socket.io-client';
 
+
+
+
+
 const socket = io('https://my-websocket-server-stasholo.glitch.me');
 
 
@@ -13,6 +17,7 @@ const ChatMatePage = () => {
   const [messageClass, setMessageClass] = useState('');
   const FirstName = localStorage.getItem('Name');
   const messagesEndRef = useRef(null);
+  const [userList, setUserList] = useState([])
 
   useEffect(() => {
     // Обработка события получения нового сообщения
@@ -60,8 +65,32 @@ const ChatMatePage = () => {
     }
   };
 
+
+
+  useEffect(() => {
+    socket.on('usersUpdated', (users) => {
+      const usernames = users.map(user => user.username);
+      setUserList(usernames);
+      console.log('Useri: ',usernames)
+      });
+  }, []);
+  
+
   return (
+
+    <div>
+
+<div className='users-block'>
+      <h1>Пользователи в чате:</h1>
+      <ul>
+        {userList.map((user, index) => (
+          <li key={index}>{user}</li>
+        ))}
+      </ul>
+
+      </div>
     <div className='message-box'>
+      
       <h1></h1>
       <div className='message'>
       <div ref={messagesEndRef}></div>
@@ -87,8 +116,11 @@ const ChatMatePage = () => {
         <Link to='/'><button>Изменить имя</button></Link>
     
       </div>
-    </div>
 
+      
+
+    </div>
+    </div>
     
 
 

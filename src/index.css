@@ -142,6 +142,25 @@ button:focus-visible {
   width: 560px;
 }
 
+.users-block{
+ position: fixed;
+ left: 10px;
+ top: 10%;
+ font-size: 5px;
+ width: 110px;
+}
+.users-block ul{
+  font-size: 15px;
+  list-style-type: none;
+  padding-left: 5px;
+}
+.users-block li{
+  background-color: #252525e6;
+  margin-top: 2px;
+  border-radius: 10px;
+  text-align: center;
+}
+
 
 
 
