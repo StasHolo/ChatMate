@@ -3,9 +3,6 @@ import { Routes, Route, Link } from 'react-router-dom'
 import io from 'socket.io-client';
 
 
-
-
-
 const socket = io('https://my-websocket-server-stasholo.glitch.me');
 
 
@@ -17,7 +14,7 @@ const ChatMatePage = () => {
   const [messageClass, setMessageClass] = useState('');
   const FirstName = localStorage.getItem('Name');
   const messagesEndRef = useRef(null);
-  const [userList, setUserList] = useState([])
+  const [userList, setUserList] = useState([]);
 
   useEffect(() => {
     // Обработка события получения нового сообщения
@@ -25,6 +22,7 @@ const ChatMatePage = () => {
       const colonIndex = data.indexOf(':');
       const storedName = localStorage.getItem('Name');
       let newMessageClass = '';
+      let now = new Date();
       if (colonIndex !== -1) {
         const receivedName = data.substring(0, colonIndex);
         if (receivedName === storedName) {
@@ -33,7 +31,11 @@ const ChatMatePage = () => {
           newMessageClass = 'other-message';
         }
       }
-      setMessages(prevMessages => [{ text: data, class: newMessageClass },...prevMessages ]);
+      const messageWithTime = {
+        text: data,
+        date: now.toLocaleString(),
+      };
+      setMessages(prevMessages => [{text: messageWithTime.text, date: messageWithTime.date, class: newMessageClass},...prevMessages ]);
     });
 
 
@@ -95,7 +97,10 @@ const ChatMatePage = () => {
       <div className='message'>
       <div ref={messagesEndRef}></div>
         {messages.map((msg, index) => (
-          <div key={index} className={msg.class}>{msg.text}</div>
+          <div key={index} className={msg.class}>
+            <div className='message-text'>{msg.text}</div>
+            <div className='message-time'>{msg.date}</div>
+          </div>
         ))}
         
       </div>

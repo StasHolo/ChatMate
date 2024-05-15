@@ -7,6 +7,7 @@ const socket = io('https://my-websocket-server-stasholo.glitch.me');
 const HomePage = () => {
     
 const [firstname, setFirstname] = useState('');
+const [pass, setPass] = useState('');
 
 
 function saveName(){
@@ -14,14 +15,19 @@ function saveName(){
         setFirstname(newName);
         localStorage.setItem('Name', newName);
 }
-
-const NameMessageSend = () => {
-
-  if (firstname.trim() !== '') {
-    // Отправка имени на сервер
-    socket.emit('firstname', firstname);
-  }
+function savePass(){
+  const newPass = event.target.value;
+      setPass(newPass);
+      localStorage.setItem('Password', newPass);
 }
+
+// const NameMessageSend = () => {
+
+//   if (firstname.trim() !== '') {
+//     // Отправка имени на сервер
+//     socket.emit('firstname', firstname);
+//   }
+// }
 
 
 
@@ -30,14 +36,21 @@ const NameMessageSend = () => {
     return (
         <div className='welcome-block'>
           <h1>Добро пожаловать!</h1>
+          <h2> Для регистрации заполните поля</h2>
             <div className='welcome-block-input'>
             <input className='name-input'
-        type="text"
-        value={firstname}
-        onChange={saveName}
-        placeholder="Введите ваше имя"
-      />
-        <Link to='/ChatMatePage'><button onClick={NameMessageSend}>Начать</button></Link>
+              type="text"
+              value={firstname}
+              onChange={saveName}
+              placeholder="Введите имя"
+            />
+            <input className='name-input'
+              type="password"
+              value={pass}
+              onChange={savePass}
+              placeholder="Введите пароль"
+            />
+        <Link to='/Auth'><button >Авторизоваться</button></Link>
     
       </div>
 
