@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import io from 'socket.io-client';
+import { Auth0ProviderWithNavigate } from './Auth0';
 import { ChatMatePage } from './ChatMatePage';
 import { HomePage } from './HomePage';
 import { Auth } from './Auth';
-
 
 
 function App() {
@@ -13,15 +13,15 @@ function App() {
     
     return (
       <>
-      <div>
+       <Auth0ProviderWithNavigate>  
       
-      </div>
       <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<Auth />} />
           <Route path='/ChatMatePage' element={<ChatMatePage />} />
           <Route path='/Auth' element={<Auth />} />
           
-        </Routes></>
+        </Routes>
+        </Auth0ProviderWithNavigate></>
     );
 }
 export default App;
