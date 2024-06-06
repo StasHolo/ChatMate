@@ -7,9 +7,7 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
 
   const domain = "dev-nsmed2hs033wqp5x.eu.auth0.com";
   const clientId = "7boiTUvg1lRUwS5BtTpTaxRpQwI62DLc";
-  const authorizationParams = { redirect_uri: process.env.BASE_SERVER };
-
-  console.log(process.env.BASE_SERVER);
+  const authorizationParams = { redirect_uri: window.location.origin + '/ChatMate' };
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
