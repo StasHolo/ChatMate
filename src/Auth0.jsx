@@ -9,6 +9,8 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
   const clientId = "7boiTUvg1lRUwS5BtTpTaxRpQwI62DLc";
   const authorizationParams = { redirect_uri: process.env.BASE_SERVER };
 
+  console.log(process.env.BASE_SERVER);
+
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
   };
